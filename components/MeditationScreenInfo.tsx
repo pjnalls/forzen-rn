@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 
 import { Text, View } from "./Themed";
 
-export default function HomeScreenInfo() {
+export default function MeditationScreenInfo() {
   return (
     <View style={styles.container}>
       <View style={styles.getStartedContainer}>
@@ -12,10 +12,19 @@ export default function HomeScreenInfo() {
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)"
         >
-          This is simply another way to the best version of yourself. 
+          When refering to meditations at Forzen, we're interested in daily
+          meditative practices, whether traditional or individualistic styles of
+          deepening one's ecological awareness of the self in relation to its
+          environment.
           {"\n\n"}
-          ...a way via non-dualistic processes of wholeness for the development of
-          the individual self and the deepening of ecological awareness.
+          We focus our energy on staying meditative throughout the day, and
+          letting these meditations be a reminder of a tuning to a point of
+          singularity for daily, consistent focus.
+          {"\n\n"}
+          Disclaimer: The following content is not a subsititution for
+          professional medical or mental health services and is based on
+          personal research, education, and observations for inspirational and
+          entertainment purposes only.
         </Text>
       </View>
     </View>
@@ -47,7 +56,7 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontSize: 17,
     lineHeight: 24,
-    textAlign: "center",
+    textAlign: "left",
   },
   helpContainer: {
     marginTop: 15,

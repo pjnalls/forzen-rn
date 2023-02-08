@@ -17,10 +17,11 @@ import { ColorSchemeName, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/HomeScreen";
-import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import IndividuationScreen from "../screens/IndividuationScreen";
+import IndividuationModalScreen from "../screens/IndividuationModalScreen";
 import MeditationScreen from "../screens/MeditationScreen";
+import MeditationModalScreen from "../screens/MeditationModalScreen";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -63,7 +64,14 @@ function RootNavigator() {
         options={{ title: "Oops!" }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen
+          name="Individuation Information"
+          component={IndividuationModalScreen}
+        />
+        <Stack.Screen
+          name="Meditation Information"
+          component={MeditationModalScreen}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -95,7 +103,7 @@ function BottomTabNavigator() {
           ),
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("Modal")}
+              onPress={() => navigation.navigate("Individuation Information")}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}
@@ -128,7 +136,7 @@ function BottomTabNavigator() {
           ),
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("Modal")}
+              onPress={() => navigation.navigate("Meditation Information")}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}

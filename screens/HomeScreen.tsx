@@ -12,9 +12,11 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
       style={styles.image}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Forzen.io</Text>
+        <Text style={styles.title} lightColor="#c31654" darkColor="#ff8dcb">
+          Forzen.io
+        </Text>
         <Text style={styles.subtitle1}>
-          Expand your <Text style={styles.subtitle2}>Zenful</Text> inner skies.
+          Expand your <Text style={styles.subtitle2} lightColor="#717e54" darkColor="#f1fed4">Zenful</Text> inner skies.
         </Text>
         <View
           style={styles.separator}
@@ -29,7 +31,6 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f1f9dfe9",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -39,17 +40,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    color: "#c31654",
     fontSize: 33.333,
     fontWeight: "bold",
   },
   subtitle1: {
-    color: "#997d7d",
     fontSize: 20,
     fontWeight: "normal",
   },
   subtitle2: {
-    color: "##717e54",
     fontSize: 20,
     fontWeight: "bold",
   },
