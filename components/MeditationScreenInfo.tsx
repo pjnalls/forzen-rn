@@ -7,11 +7,7 @@ export default function MeditationScreenInfo() {
   return (
     <View style={styles.container}>
       <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)"
-        >
+        <Text style={styles.getStartedText}>
           When refering to meditations at Forzen, we're interested in daily
           meditative practices, whether traditional or individualistic styles of
           deepening one's ecological awareness of the self in relation to its

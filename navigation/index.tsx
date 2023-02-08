@@ -18,16 +18,18 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/HomeScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import IndividuationScreen from "../screens/IndividuationScreen";
-import IndividuationModalScreen from "../screens/IndividuationModalScreen";
-import MeditationScreen from "../screens/MeditationScreen";
-import MeditationModalScreen from "../screens/MeditationModalScreen";
+import IndividuationScreen from "../screens/individuations/IndividuationScreen";
+import MeditationScreen from "../screens/meditations/MeditationScreen";
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import IndividuationInfoScreen from "../screens/individuations/IndividuationInfoScreen";
+import MeditationInfoScreen from "../screens/meditations/MeditationInfoScreen";
+import IndividuationPostScreen from "../screens/individuations/IndividuationPostScreen";
+import MeditationPostScreen from "../screens/meditations/MeditationPostScreen";
 
 export default function Navigation({
   colorScheme,
@@ -66,11 +68,19 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen
           name="Individuation Information"
-          component={IndividuationModalScreen}
+          component={IndividuationInfoScreen}
+        />
+        <Stack.Screen
+          name="Individuation Post"
+          children={() => IndividuationPostScreen("Test", "")}
         />
         <Stack.Screen
           name="Meditation Information"
-          component={MeditationModalScreen}
+          component={MeditationInfoScreen}
+        />
+        <Stack.Screen
+          name="Meditation Post"
+          children={() => MeditationPostScreen("Test", "")}
         />
       </Stack.Group>
     </Stack.Navigator>

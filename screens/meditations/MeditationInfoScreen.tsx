@@ -1,20 +1,20 @@
 import { StatusBar } from "expo-status-bar";
 import { Platform, StyleSheet } from "react-native";
 
-import IndividuationScreenInfo from "../components/IndividuationScreenInfo";
-import { Text, View } from "../components/Themed";
+import MeditationScreenInfo from "../../components/MeditationScreenInfo";
+import { Text, View } from "../../components/Themed";
 
-export default function IndividuationModalScreen(
+export default function MeditationModalScreen(
 ) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Individuation Information</Text>
+      <Text style={styles.title}>Meditation Information</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <IndividuationScreenInfo />
+      <MeditationScreenInfo />
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />

@@ -7,11 +7,7 @@ export default function IndividuationScreenInfo() {
   return (
     <View style={styles.container}>
       <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0)"
-          darkColor="rgba(255,255,255,0)"
-        >
+        <Text style={styles.getStartedText}>
           When referring to individuations at Forzen, we're interested in the
           process of unifying all aspects of the individual self in a
           non-dualistic process.
