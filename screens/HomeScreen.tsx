@@ -2,26 +2,41 @@ import { ImageBackground, StyleSheet } from "react-native";
 
 import HomeScreenInfo from "../components/HomeScreenInfo";
 import { Text, View } from "../components/Themed";
+import Colors from "../constants/Colors";
+import { sources } from "../data/sources";
+import useColorScheme from "../hooks/useColorScheme";
 import { RootTabScreenProps } from "../types";
 
-export default function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
+export default function HomeScreen() {
+  const colorScheme = useColorScheme();
   return (
     <ImageBackground
-      source={require("../assets/images/park.jpg")}
+      source={sources.get("park")}
       resizeMode="cover"
       style={styles.image}
     >
       <View style={styles.container}>
-        <Text style={styles.title} lightColor="#c31654" darkColor="#ff8dcb">
+        <Text style={{ ...styles.title, color: Colors[colorScheme].tint }}>
           Forzen.io
         </Text>
         <Text style={styles.subtitle1}>
-          Expand your <Text style={styles.subtitle2} lightColor="#717e54" darkColor="#f1fed4">Zenful</Text> inner skies.
+          Expand your{" "}
+          <Text
+            style={{
+              ...styles.subtitle2,
+              color: colorScheme === "light" ? "#717e54" : "#f1fed4",
+            }}
+          >
+            Zenful
+          </Text>{" "}
+          inner skies.
         </Text>
         <View
-          style={styles.separator}
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
+          style={{
+            ...styles.separator,
+            borderColor:
+              colorScheme === "light" ? "#d1d9bf" : "rgba(255,255,255,0.1)",
+          }}
         />
         <HomeScreenInfo />
       </View>

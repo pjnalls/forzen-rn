@@ -2,22 +2,25 @@ import { StatusBar } from "expo-status-bar";
 import { Image, Platform, StyleSheet } from "react-native";
 
 import { Text, View } from "../../components/Themed";
+import { sources } from "../../data/sources";
+import { Post } from "../../types";
 
-export default function MeditationPostScreen(title: string, imageUri: string) {
+export default function MeditationPostScreen({
+  title,
+  imageName,
+  description,
+}: Post) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Beside Still Waters</Text>
+      <Text style={styles.title}>{title}</Text>
       <Image
         style={styles.image}
-        source={require("../../assets/images/park.jpg")}
+        source={sources.get(imageName)}
         resizeMode="center"
       />
       <Text style={styles.separator}>
-        {"\t"}In society, it seems as if the meaning of "life balance" is waling on a
-        tightrope suspened high above in the air — a superhuman feat; yet,
-        through the activation of higher levels of conciousness, one can walk a
-        broad middle path — unconditional leisure through a park on a trail
-        parallel, beside still waters.
+        {"\t"}
+        {description}
       </Text>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
@@ -40,6 +43,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  separator: {
-  },
+  separator: {},
 });

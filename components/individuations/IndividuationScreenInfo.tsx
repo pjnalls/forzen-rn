@@ -1,7 +1,7 @@
 import * as WebBrowser from "expo-web-browser";
 import { StyleSheet } from "react-native";
 
-import { Text, View } from "./Themed";
+import { Text, View } from "../Themed";
 
 export default function IndividuationScreenInfo() {
   return (

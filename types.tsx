@@ -20,8 +20,8 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   "Individuation Information": undefined;
   "Meditation Information": undefined;
-  "Individuation Post": { title: string; imageUri: string };
-  "Meditation Post": { title: string; imageUri: string };
+  "Individuation Post": Post;
+  "Meditation Post": Post;
   NotFound: undefined;
 };
 
@@ -39,3 +39,9 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export type Post = {
+  title: string;
+  imageName: string;
+  description: string;
+};

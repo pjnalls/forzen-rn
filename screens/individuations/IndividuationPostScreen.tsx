@@ -2,25 +2,25 @@ import { StatusBar } from "expo-status-bar";
 import { Image, Platform, StyleSheet } from "react-native";
 
 import { Text, View } from "../../components/Themed";
+import { sources } from "../../data/sources";
+import { Post } from "../../types";
 
-export default function IndividuationPostScreen(
-  title: string,
-  imageUri: string
-) {
+export default function IndividuationPostScreen({
+  title,
+  imageName,
+  description,
+}: Post) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Perfect Imperfections</Text>
+      <Text style={styles.title}>{title}</Text>
       <Image
         style={styles.image}
-        source={require("../../assets/images/individuations/sunrise.jpg")}
+        source={sources.get(imageName)}
         resizeMode="center"
       />
       <Text style={styles.separator}>
-        {"\t"}As you meditatively experience those brief moments of the rising
-        and setting of the sun in the early mornings and evenings, you begin to
-        realize that there is such a thing as perfection — perfect
-        imperfections: a beautiful phenomena beyond your understanding yet you
-        can feel and know its there.
+        {"\t"}
+        {description}
       </Text>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
@@ -43,7 +43,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  separator: {
-  },
+  separator: {},
 });
-

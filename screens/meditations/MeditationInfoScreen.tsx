@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { Platform, StyleSheet } from "react-native";
 
-import MeditationScreenInfo from "../../components/MeditationScreenInfo";
+import MeditationScreenInfo from "../../components/meditations/MeditationScreenInfo";
 import { Text, View } from "../../components/Themed";
 
 export default function MeditationModalScreen(
@@ -11,7 +11,7 @@ export default function MeditationModalScreen(
       <Text style={styles.title}>Meditation Information</Text>
       <View
         style={styles.separator}
-        lightColor="#eee"
+        lightColor="#e1e9cfe9"
         darkColor="rgba(255,255,255,0.1)"
       />
       <MeditationScreenInfo />

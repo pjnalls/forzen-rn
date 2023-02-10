@@ -1,26 +1,18 @@
 import * as WebBrowser from "expo-web-browser";
 import { StyleSheet } from "react-native";
 
-import { Text, View } from "./Themed";
+import { Text, View } from "../Themed";
 
-export default function MeditationScreenInfo() {
+export default function IndividuationScreenDescription() {
   return (
     <View style={styles.container}>
       <View style={styles.getStartedContainer}>
         <Text style={styles.getStartedText}>
-          When refering to meditations at Forzen, we're interested in daily
-          meditative practices, whether traditional or individualistic styles of
-          deepening one's ecological awareness of the self in relation to its
-          environment.
+          Select an image below for bite-sized individuation.
           {"\n\n"}
-          We focus our energy on staying meditative throughout the day, and
-          letting these meditations be a reminder of a tuning to a point of
-          singularity for daily, consistent focus.
-          {"\n\n"}
-          Disclaimer: The following content is not a subsititution for
-          professional medical or mental health services and is based on
-          personal research, education, and observations for inspirational and
-          entertainment purposes only.
+          Many of these individuations may overlap with meditations which you
+          can view as well. Some individuations may not exactly fit with what
+          you may need to read, so by all means only take what works for you. 🙂
         </Text>
       </View>
     </View>
@@ -52,7 +44,7 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontSize: 17,
     lineHeight: 24,
-    textAlign: "left",
+    textAlign: "center",
   },
   helpContainer: {
     marginTop: 15,

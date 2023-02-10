@@ -21,6 +21,7 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import IndividuationScreen from "../screens/individuations/IndividuationScreen";
 import MeditationScreen from "../screens/meditations/MeditationScreen";
 import {
+  Post,
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
@@ -72,7 +73,9 @@ function RootNavigator() {
         />
         <Stack.Screen
           name="Individuation Post"
-          children={() => IndividuationPostScreen("Test", "")}
+          children={(router) =>
+            IndividuationPostScreen({ ...router.route.params })
+          }
         />
         <Stack.Screen
           name="Meditation Information"
@@ -80,7 +83,9 @@ function RootNavigator() {
         />
         <Stack.Screen
           name="Meditation Post"
-          children={() => MeditationPostScreen("Test", "")}
+          children={(router) =>
+            MeditationPostScreen({ ...router.route.params })
+          }
         />
       </Stack.Group>
     </Stack.Navigator>
@@ -98,7 +103,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Individuation"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
