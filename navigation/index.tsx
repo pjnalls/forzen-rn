@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName, Pressable, Text } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -21,12 +21,11 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import IndividuationScreen from "../screens/individuations/IndividuationScreen";
 import MeditationScreen from "../screens/meditations/MeditationScreen";
 import {
-  Post,
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
-import LinkingConfiguration from "./LinkingConfiguration";
+import { linking } from "./LinkingConfiguration";
 import IndividuationInfoScreen from "../screens/individuations/IndividuationInfoScreen";
 import MeditationInfoScreen from "../screens/meditations/MeditationInfoScreen";
 import IndividuationPostScreen from "../screens/individuations/IndividuationPostScreen";
@@ -39,7 +38,8 @@ export default function Navigation({
 }) {
   return (
     <NavigationContainer
-      linking={LinkingConfiguration}
+      linking={linking}
+      fallback={<Text>Loading...</Text>}
       theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
     >
       <RootNavigator />
@@ -60,6 +60,11 @@ function RootNavigator() {
         name="Root"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ title: "Home" }}
       />
       <Stack.Screen
         name="NotFound"

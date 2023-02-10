@@ -22,6 +22,7 @@ export type RootStackParamList = {
   "Meditation Information": undefined;
   "Individuation Post": Post;
   "Meditation Post": Post;
+  Home: undefined;
   NotFound: undefined;
 };
 

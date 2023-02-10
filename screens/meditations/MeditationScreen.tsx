@@ -46,8 +46,8 @@ export default function MeditationScreen({
               lightColor="#rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
-            {meditations.map((meditation) => (
-              <>
+            {meditations.map((meditation, index) => (
+              <View key={`m-${index}-${meditation.imageName}`}>
                 <View
                   style={styles.imageSeparator}
                   lightColor="#rgba(255,255,255,0)"
@@ -62,14 +62,13 @@ export default function MeditationScreen({
                   style={({ pressed }) => ({
                     opacity: pressed ? 0.5 : 1,
                   })}
-                  key={meditation.imageName}
                 >
                   <Image
                     source={sources.get(meditation.imageName)}
                     style={styles.image}
                   />
                 </Pressable>
-              </>
+              </View>
             ))}
             <View
               style={styles.separator}
@@ -91,9 +90,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "transparent",
     paddingTop: StatusBar.currentHeight,
+    paddingLeft: 16,
   },
   scrollView: {
     marginHorizontal: 20,
+    backgroundColor: "transparent",
   },
   imageBackground: {
     flex: 1,
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width - 16,
     height: Dimensions.get("window").width - 16,
     alignSelf: "center",
+    backgroundColor: "transparent",
   },
   title: {
     marginTop: 36,
@@ -120,5 +122,6 @@ const styles = StyleSheet.create({
   imageSeparator: {
     padding: 4,
     width: "80%",
+    backgroundColor: "transparent",
   },
 });

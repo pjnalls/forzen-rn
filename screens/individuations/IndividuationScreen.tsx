@@ -46,12 +46,13 @@ export default function IndividuationScreen({
               lightColor="#rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
-            {individuations.map((individuation) => (
-              <>
+            {individuations.map((individuation, index) => (
+              <View key={`i-${index}-${individuation.imageName}`}>
                 <View
                   style={styles.imageSeparator}
                   lightColor="#rgba(255,255,255,0)"
                   darkColor="rgba(255,255,255,0)"
+                  
                 />
                 <Pressable
                   onPress={() =>
@@ -62,14 +63,14 @@ export default function IndividuationScreen({
                   style={({ pressed }) => ({
                     opacity: pressed ? 0.5 : 1,
                   })}
-                  key={individuation.imageName}
+                  
                 >
                   <Image
                     source={sources.get(individuation.imageName)}
                     style={styles.image}
                   />
                 </Pressable>
-              </>
+              </View>
             ))}
             <View
               style={styles.separator}
@@ -91,9 +92,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "transparent",
     paddingTop: StatusBar.currentHeight,
+    paddingLeft: 16,
   },
   scrollView: {
     marginHorizontal: 20,
+    backgroundColor: "transparent",
   },
   imageBackground: {
     flex: 1,
@@ -104,6 +107,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width - 16,
     height: Dimensions.get("window").width - 16,
     alignSelf: "center",
+    backgroundColor: "transparent",
   },
   title: {
     marginTop: 36,
@@ -120,5 +124,6 @@ const styles = StyleSheet.create({
   imageSeparator: {
     padding: 4,
     width: "80%",
+    backgroundColor: "transparent",
   },
 });

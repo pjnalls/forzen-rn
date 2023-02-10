@@ -5,7 +5,6 @@ import { Text, View } from "../components/Themed";
 import Colors from "../constants/Colors";
 import { sources } from "../data/sources";
 import useColorScheme from "../hooks/useColorScheme";
-import { RootTabScreenProps } from "../types";
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme();
