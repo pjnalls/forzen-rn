@@ -1,13 +1,12 @@
 import {
-  Dimensions,
   Image,
   ImageBackground,
   Pressable,
   SafeAreaView,
   ScrollView,
-  StatusBar,
-  StyleSheet,
 } from "react-native";
+
+import { styles } from "../../shared/styles/ModuleScreen.style";
 import MeditationScreenDescription from "../../components/meditations/MeditationScreenDescription";
 
 import { Text, View } from "../../components/Themed";
@@ -43,14 +42,17 @@ export default function MeditationScreen({
             <MeditationScreenDescription />
             <View
               style={styles.separator}
-              lightColor="#rgba(255,255,255,0)"
+              lightColor="rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
             {meditations.map((meditation, index) => (
-              <View key={`m-${index}-${meditation.imageName}`}>
+              <View
+                style={{ backgroundColor: "transparent" }}
+                key={`m-${index}-${meditation.imageName}`}
+              >
                 <View
                   style={styles.imageSeparator}
-                  lightColor="#rgba(255,255,255,0)"
+                  lightColor="rgba(255,255,255,0)"
                   darkColor="rgba(255,255,255,0)"
                 />
                 <Pressable
@@ -72,7 +74,7 @@ export default function MeditationScreen({
             ))}
             <View
               style={styles.separator}
-              lightColor="#rgba(255,255,255,0)"
+              lightColor="rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
           </>
@@ -81,47 +83,3 @@ export default function MeditationScreen({
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    textAlign: "center",
-    justifyContent: "center",
-    backgroundColor: "transparent",
-    paddingTop: StatusBar.currentHeight,
-    paddingLeft: 16,
-  },
-  scrollView: {
-    marginHorizontal: 20,
-    backgroundColor: "transparent",
-  },
-  imageBackground: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  image: {
-    top: 16,
-    width: Dimensions.get("window").width - 16,
-    height: Dimensions.get("window").width - 16,
-    alignSelf: "center",
-    backgroundColor: "transparent",
-  },
-  title: {
-    marginTop: 36,
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  separator: {
-    alignSelf: "center",
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-  imageSeparator: {
-    padding: 4,
-    width: "80%",
-    backgroundColor: "transparent",
-  },
-});

@@ -18,7 +18,7 @@ export default function MeditationPostScreen({
         source={sources.get(imageName)}
         resizeMode="center"
       />
-      <Text style={styles.separator}>
+      <Text>
         {"\t"}
         {description}
       </Text>
@@ -43,5 +43,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  separator: {},
 });

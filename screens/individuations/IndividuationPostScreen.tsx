@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Image, Platform, StyleSheet } from "react-native";
+import { Dimensions, Image, Platform, StyleSheet } from "react-native";
 
 import { Text, View } from "../../components/Themed";
 import { sources } from "../../data/sources";
@@ -18,7 +18,7 @@ export default function IndividuationPostScreen({
         source={sources.get(imageName)}
         resizeMode="center"
       />
-      <Text style={styles.separator}>
+      <Text>
         {"\t"}
         {description}
       </Text>
@@ -43,5 +43,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  separator: {},
 });
