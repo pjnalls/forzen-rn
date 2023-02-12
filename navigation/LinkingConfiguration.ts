@@ -5,12 +5,13 @@
  */
 
 import { LinkingOptions } from "@react-navigation/native";
-import * as Linking from "expo-linking";
-
 import { RootStackParamList } from "../types";
 
 export const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.createURL("/")],
+  prefixes: [
+    "forzen-rn://navigation/",
+    "https://snack.expo.dev/@pjnalls/github.com-pjnalls-forzen-rn/navigation/",
+  ],
   config: {
     screens: {
       Root: {
