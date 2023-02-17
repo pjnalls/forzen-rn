@@ -6,8 +6,8 @@ import {
   ScrollView,
 } from "react-native";
 
-import { styles } from "../../shared/styles/ModuleScreen.style";
-import IndividuationScreenDescription from "../../components/individuations/IndividuationScreenDescription";
+import { styles } from "../../shared/styles/ModuleScreen.styles";
+import IndividuationDescription from "../../components/individuations/IndividuationDescription";
 
 import { Text, View } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -39,16 +39,16 @@ export default function IndividuationScreen({
               lightColor="#d1d9bf"
               darkColor="rgba(255,255,255,0.1)"
             />
-            <IndividuationScreenDescription />
+            <IndividuationDescription />
             <View
               style={styles.separator}
               lightColor="rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
-            {individuations.map((individuation, index) => (
+            {individuations.map((individuation) => (
               <View
                 style={{ backgroundColor: "transparent" }}
-                key={`i-${index}-${individuation.imageName}`}
+                key={`i-${individuation.imageName}`}
               >
                 <View
                   style={styles.imageSeparator}

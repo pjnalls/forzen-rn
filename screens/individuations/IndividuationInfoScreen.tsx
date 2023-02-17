@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet } from "react-native";
+import { Platform, ScrollView } from "react-native";
 
-import IndividuationScreenInfo from "../../components/individuations/IndividuationScreenInfo";
+import IndividuationInfo from "../../components/individuations/IndividuationInfo";
 import { Text, View } from "../../components/Themed";
+import { styles } from "../../shared/styles/InfoScreen.styles";
 
-export default function IndividuationModalScreen(
-) {
+export default function IndividuationInfoScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Individuation Information</Text>
@@ -14,27 +14,12 @@ export default function IndividuationModalScreen(
         lightColor="#e1e9cfe9"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <IndividuationScreenInfo />
+      <ScrollView style={{ marginBottom: 16 }}>
+        <IndividuationInfo />
+      </ScrollView>
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});

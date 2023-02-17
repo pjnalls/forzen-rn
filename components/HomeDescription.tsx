@@ -1,7 +1,7 @@
-import { styles } from "../shared/styles/Modal.styles";
+import { styles } from "../shared/styles/Description.styles";
 import { Text, View } from "./Themed";
 
-export default function HomeScreenInfo() {
+export default function HomeDescription() {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>

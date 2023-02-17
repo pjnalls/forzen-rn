@@ -1,7 +1,7 @@
-import { styles } from "../../shared/styles/Modal.styles";
+import { styles } from "../../shared/styles/InfoModal.styles";
 import { Text, View } from "../Themed";
 
-export default function MeditationScreenInfo() {
+export default function MeditationInfo() {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>

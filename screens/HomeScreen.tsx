@@ -1,6 +1,6 @@
 import { ImageBackground, StyleSheet } from "react-native";
 
-import HomeScreenInfo from "../components/HomeScreenInfo";
+import HomeDescription from "../components/HomeDescription";
 import { Text, View } from "../components/Themed";
 import Colors from "../constants/Colors";
 import { sources } from "../data/sources";
@@ -37,7 +37,7 @@ export default function HomeScreen() {
               colorScheme === "light" ? "#d1d9bf" : "rgba(255,255,255,0.1)",
           }}
         />
-        <HomeScreenInfo />
+        <HomeDescription />
       </View>
     </ImageBackground>
   );
@@ -60,10 +60,12 @@ const styles = StyleSheet.create({
   subtitle1: {
     fontSize: 20,
     fontWeight: "normal",
+    textAlign: "center"
   },
   subtitle2: {
     fontSize: 20,
     fontWeight: "bold",
+    textAlign: "center"
   },
   separator: {
     marginVertical: 30,

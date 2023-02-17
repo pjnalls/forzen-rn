@@ -6,8 +6,8 @@ import {
   ScrollView,
 } from "react-native";
 
-import { styles } from "../../shared/styles/ModuleScreen.style";
-import MeditationScreenDescription from "../../components/meditations/MeditationScreenDescription";
+import { styles } from "../../shared/styles/ModuleScreen.styles";
+import MeditationDescription from "../../components/meditations/MeditationDescription";
 
 import { Text, View } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -39,16 +39,16 @@ export default function MeditationScreen({
               lightColor="#d1d9bf"
               darkColor="rgba(255,255,255,0.1)"
             />
-            <MeditationScreenDescription />
+            <MeditationDescription />
             <View
               style={styles.separator}
               lightColor="rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
-            {meditations.map((meditation, index) => (
+            {meditations.map((meditation) => (
               <View
                 style={{ backgroundColor: "transparent" }}
-                key={`m-${index}-${meditation.imageName}`}
+                key={`m-${meditation.imageName}`}
               >
                 <View
                   style={styles.imageSeparator}
