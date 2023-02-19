@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Image,
   ImageBackground,
@@ -7,7 +8,7 @@ import {
 } from "react-native";
 
 import { styles } from "../../shared/styles/ModuleScreen.styles";
-import MeditationDescription from "../../components/meditations/MeditationDescription";
+import { MeditationDescription } from "../../components/meditations/MeditationDescription";
 
 import { Text, View } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -16,9 +17,9 @@ import { sources } from "../../data/sources";
 import useColorScheme from "../../hooks/useColorScheme";
 import { RootTabScreenProps } from "../../types";
 
-export default function MeditationScreen({
+export const MeditationScreen: FC<RootTabScreenProps<"Meditation">> = ({
   navigation,
-}: RootTabScreenProps<"Meditation">) {
+}: RootTabScreenProps<"Meditation">) => {
   const colorScheme = useColorScheme();
   return (
     <SafeAreaView style={styles.container}>

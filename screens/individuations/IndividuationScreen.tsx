@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Image,
   ImageBackground,
@@ -7,7 +8,7 @@ import {
 } from "react-native";
 
 import { styles } from "../../shared/styles/ModuleScreen.styles";
-import IndividuationDescription from "../../components/individuations/IndividuationDescription";
+import { IndividuationDescription } from "../../components/individuations/IndividuationDescription";
 
 import { Text, View } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -16,9 +17,9 @@ import { sources } from "../../data/sources";
 import useColorScheme from "../../hooks/useColorScheme";
 import { RootTabScreenProps } from "../../types";
 
-export default function IndividuationScreen({
+export const IndividuationScreen: FC<RootTabScreenProps<"Individuation">> = ({
   navigation,
-}: RootTabScreenProps<"Individuation">) {
+}: RootTabScreenProps<"Individuation">) => {
   const colorScheme = useColorScheme();
   return (
     <SafeAreaView style={styles.container}>
@@ -82,4 +83,4 @@ export default function IndividuationScreen({
       </ImageBackground>
     </SafeAreaView>
   );
-}
+};

@@ -1,12 +1,13 @@
+import { FC } from "react";
 import { ImageBackground, StyleSheet } from "react-native";
 
-import HomeDescription from "../components/HomeDescription";
+import { HomeDescription } from "../components/HomeDescription";
 import { Text, View } from "../components/Themed";
 import Colors from "../constants/Colors";
 import { sources } from "../data/sources";
 import useColorScheme from "../hooks/useColorScheme";
 
-export default function HomeScreen() {
+export const HomeScreen: FC = () => {
   const colorScheme = useColorScheme();
   return (
     <ImageBackground
@@ -41,7 +42,7 @@ export default function HomeScreen() {
       </View>
     </ImageBackground>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -60,12 +61,12 @@ const styles = StyleSheet.create({
   subtitle1: {
     fontSize: 20,
     fontWeight: "normal",
-    textAlign: "center"
+    textAlign: "center",
   },
   subtitle2: {
     fontSize: 20,
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   separator: {
     marginVertical: 30,

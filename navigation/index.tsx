@@ -16,36 +16,32 @@ import { ColorSchemeName, Pressable, Text } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import HomeScreen from "../screens/HomeScreen";
-import NotFoundScreen from "../screens/NotFoundScreen";
-import IndividuationScreen from "../screens/individuations/IndividuationScreen";
-import MeditationScreen from "../screens/meditations/MeditationScreen";
+import { HomeScreen } from "../screens/HomeScreen";
+import { NotFoundScreen } from "../screens/NotFoundScreen";
+import { IndividuationScreen } from "../screens/individuations/IndividuationScreen";
+import { MeditationScreen } from "../screens/meditations/MeditationScreen";
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
 import { linking } from "./LinkingConfiguration";
-import IndividuationInfoScreen from "../screens/individuations/IndividuationInfoScreen";
-import MeditationInfoScreen from "../screens/meditations/MeditationInfoScreen";
-import IndividuationPostScreen from "../screens/individuations/IndividuationPostScreen";
-import MeditationPostScreen from "../screens/meditations/MeditationPostScreen";
+import { IndividuationInfoScreen } from "../screens/individuations/IndividuationInfoScreen";
+import { MeditationInfoScreen } from "../screens/meditations/MeditationInfoScreen";
+import { IndividuationPostScreen } from "../screens/individuations/IndividuationPostScreen";
+import { MeditationPostScreen } from "../screens/meditations/MeditationPostScreen";
 
-export default function Navigation({
-  colorScheme,
-}: {
+export const Navigation: React.FC<{
   colorScheme: ColorSchemeName;
-}) {
-  return (
-    <NavigationContainer
-      linking={linking}
-      fallback={<Text>Loading...</Text>}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-    >
-      <RootNavigator />
-    </NavigationContainer>
-  );
-}
+}> = ({ colorScheme }: { colorScheme: ColorSchemeName }) => (
+  <NavigationContainer
+    linking={linking}
+    fallback={<Text>Loading...</Text>}
+    theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+  >
+    <RootNavigator />
+  </NavigationContainer>
+);
 
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.

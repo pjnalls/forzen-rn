@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { Text, View } from "../components/Themed";
@@ -5,9 +6,9 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import { RootStackScreenProps } from "../types";
 
-export default function NotFoundScreen({
+export const NotFoundScreen: FC<RootStackScreenProps<"NotFound">> = ({
   navigation,
-}: RootStackScreenProps<"NotFound">) {
+}: RootStackScreenProps<"NotFound">) => {
   const colorScheme = useColorScheme();
   return (
     <View style={styles.container}>
@@ -22,7 +23,7 @@ export default function NotFoundScreen({
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
