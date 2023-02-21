@@ -10,18 +10,30 @@ import {
 } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
+export type ModuleScreenProps = {
+  title: string;
+  posts: Post[];
+  postType: "Individuation" | "Meditation";
+};
+
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
   }
 }
 
+export type Info = {
+  title: string;
+  infoType: "Individuation" | "Meditation";
+};
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  "Individuation Information": undefined;
-  "Meditation Information": undefined;
+  "Individuation Information": Info;
+  "Meditation Information": Info;
   "Individuation Post": Post;
   "Meditation Post": Post;
+  "Module": Post;
   Home: undefined;
   NotFound: undefined;
 };
@@ -33,6 +45,7 @@ export type RootTabParamList = {
   Home: undefined;
   Individuation: undefined;
   Meditation: undefined;
+  Module: Post;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

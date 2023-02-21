@@ -7,19 +7,22 @@ import {
   ScrollView,
 } from "react-native";
 
-import { styles } from "../../shared/styles/ModuleScreen.styles";
-import { MeditationDescription } from "../../components/meditations/MeditationDescription";
+import { styles } from "../styles/ModuleScreen.styles";
 
+import { IndividuationDescription } from "../../components/individuations/IndividuationDescription";
+import { MeditationDescription } from "../../components/meditations/MeditationDescription";
 import { Text, View } from "../../components/Themed";
 import Colors from "../../constants/Colors";
-import { meditations } from "../../data/meditations";
 import { sources } from "../../data/sources";
 import useColorScheme from "../../hooks/useColorScheme";
-import { RootTabScreenProps } from "../../types";
+import { ModuleScreenProps, RootTabScreenProps } from "../../types";
 
-export const MeditationScreen: FC<RootTabScreenProps<"Meditation">> = ({
-  navigation,
-}: RootTabScreenProps<"Meditation">) => {
+export const ModuleScreen: FC<{
+  navigation: RootTabScreenProps<"Module">;
+  moduleScreen: ModuleScreenProps;
+}> = (props) => {
+  const { title, posts, postType } = props.moduleScreen;
+  const navigation = props.navigation as any;
   const colorScheme = useColorScheme();
   return (
     <SafeAreaView style={styles.container}>
@@ -34,22 +37,26 @@ export const MeditationScreen: FC<RootTabScreenProps<"Meditation">> = ({
       >
         <ScrollView contentContainerStyle={styles.scrollView}>
           <>
-            <Text style={styles.title}>Meditation</Text>
+            <Text style={styles.title}>{title}</Text>
             <View
               style={styles.separator}
               lightColor="#d1d9bf"
               darkColor="rgba(255,255,255,0.1)"
             />
-            <MeditationDescription />
+            {postType === "Individuation" ? (
+              <IndividuationDescription />
+            ) : (
+              <MeditationDescription />
+            )}
             <View
               style={styles.separator}
               lightColor="rgba(255,255,255,0)"
               darkColor="rgba(255,255,255,0)"
             />
-            {meditations.map((meditation) => (
+            {posts.map((post) => (
               <View
                 style={{ backgroundColor: "transparent" }}
-                key={`m-${meditation.imageName}`}
+                key={`${postType}-${post.imageName}`}
               >
                 <View
                   style={styles.imageSeparator}
@@ -58,8 +65,8 @@ export const MeditationScreen: FC<RootTabScreenProps<"Meditation">> = ({
                 />
                 <Pressable
                   onPress={() =>
-                    navigation.navigate("Meditation Post", {
-                      ...meditation,
+                    navigation.navigate(`${postType} Post`, {
+                      ...post,
                     })
                   }
                   style={({ pressed }) => ({
@@ -67,7 +74,7 @@ export const MeditationScreen: FC<RootTabScreenProps<"Meditation">> = ({
                   })}
                 >
                   <Image
-                    source={sources.get(meditation.imageName)}
+                    source={sources.get(post.imageName)}
                     style={styles.image}
                   />
                 </Pressable>
@@ -83,4 +90,4 @@ export const MeditationScreen: FC<RootTabScreenProps<"Meditation">> = ({
       </ImageBackground>
     </SafeAreaView>
   );
-}
+};

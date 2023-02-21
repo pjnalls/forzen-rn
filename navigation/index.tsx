@@ -4,32 +4,36 @@
  *
  */
 import { FontAwesome } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
+  CompositeNavigationProp,
 } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator, NativeStackNavigationProp } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable, Text } from "react-native";
 
+import { IndividuationDescription } from "../components/individuations/IndividuationDescription";
+import { IndividuationInfo } from "../components/individuations/IndividuationInfo";
+import { MeditationDescription } from "../components/meditations/MeditationDescription";
+import { MeditationInfo } from "../components/meditations/MeditationInfo";
 import Colors from "../constants/Colors";
+import { individuations } from "../data/individuation";
+import { meditations } from "../data/meditations";
 import useColorScheme from "../hooks/useColorScheme";
+import { linking } from "./LinkingConfiguration";
+import { InfoScreen } from "../shared/screens/InfoScreen";
+import { ModuleScreen } from "../shared/screens/ModuleScreen";
+import { PostScreen } from "../shared/screens/PostScreen";
 import { HomeScreen } from "../screens/HomeScreen";
 import { NotFoundScreen } from "../screens/NotFoundScreen";
-import { IndividuationScreen } from "../screens/individuations/IndividuationScreen";
-import { MeditationScreen } from "../screens/meditations/MeditationScreen";
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
-import { linking } from "./LinkingConfiguration";
-import { IndividuationInfoScreen } from "../screens/individuations/IndividuationInfoScreen";
-import { MeditationInfoScreen } from "../screens/meditations/MeditationInfoScreen";
-import { IndividuationPostScreen } from "../screens/individuations/IndividuationPostScreen";
-import { MeditationPostScreen } from "../screens/meditations/MeditationPostScreen";
 
 export const Navigation: React.FC<{
   colorScheme: ColorSchemeName;
@@ -70,23 +74,19 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen
           name="Individuation Information"
-          component={IndividuationInfoScreen}
+          children={(router) => InfoScreen({ ...router.route.params })}
         />
         <Stack.Screen
           name="Individuation Post"
-          children={(router) =>
-            IndividuationPostScreen({ ...router.route.params })
-          }
+          children={(router) => PostScreen({ ...router.route.params })}
         />
         <Stack.Screen
           name="Meditation Information"
-          component={MeditationInfoScreen}
+          children={(router) => InfoScreen({ ...router.route.params })}
         />
         <Stack.Screen
           name="Meditation Post"
-          children={(router) =>
-            MeditationPostScreen({ ...router.route.params })
-          }
+          children={(router) => PostScreen({ ...router.route.params })}
         />
       </Stack.Group>
     </Stack.Navigator>
@@ -111,7 +111,16 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Individuation"
-        component={IndividuationScreen}
+        children={(router) =>
+          ModuleScreen({
+            navigation: router.navigation,
+            moduleScreen: {
+              title: "Individuation",
+              posts: meditations,
+              postType: "Individuation",
+            },
+          })
+        }
         options={({ navigation }: RootTabScreenProps<"Individuation">) => ({
           title: "Individuation",
           tabBarIcon: ({ color }) => (
@@ -119,7 +128,12 @@ function BottomTabNavigator() {
           ),
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("Individuation Information")}
+              onPress={() =>
+                navigation.navigate("Individuation Information", {
+                  title: "Individuation Information",
+                  infoType: "Individuation",
+                })
+              }
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}
@@ -144,7 +158,16 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Meditation"
-        component={MeditationScreen}
+        children={(router) =>
+          ModuleScreen({
+            navigation: router.navigation,
+            moduleScreen: {
+              title: "Meditation",
+              posts: individuations,
+              postType: "Meditation",
+            },
+          })
+        }
         options={({ navigation }: RootTabScreenProps<"Meditation">) => ({
           title: "Meditation",
           tabBarIcon: ({ color }) => (
@@ -152,7 +175,12 @@ function BottomTabNavigator() {
           ),
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("Meditation Information")}
+              onPress={() =>
+                navigation.navigate("Meditation Information", {
+                  title: "Meditation Information",
+                  infoType: "Meditation",
+                })
+              }
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}

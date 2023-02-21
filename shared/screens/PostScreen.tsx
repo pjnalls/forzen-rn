@@ -7,7 +7,7 @@ import { sources } from "../../data/sources";
 import { styles } from "../../shared/styles/Post.styles";
 import { Post } from "../../types";
 
-export const MeditationPostScreen: FC<Post> = ({
+export const PostScreen: FC<Post> = ({
   title,
   imageName,
   description,
