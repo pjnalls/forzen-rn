@@ -6,7 +6,7 @@ export const MeditationInfo: FC = () => (
   <View style={styles.container}>
     <View style={styles.textContainer}>
       <Text style={styles.text}>
-        When refering to meditations at Forzen, we're interested in daily
+        When refering to meditations at F⍛rzen, we're interested in daily
         meditative practices, whether traditional or individualistic styles of
         deepening one's ecological awareness of the self in relation to its
         environment.

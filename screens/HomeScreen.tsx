@@ -17,7 +17,7 @@ export const HomeScreen: FC = () => {
     >
       <View style={styles.container}>
         <Text style={{ ...styles.title, color: Colors[colorScheme].tint }}>
-          Forzen.io
+          F⍛rzen.io
         </Text>
         <Text style={styles.subtitle1}>
           Expand your{" "}

@@ -6,7 +6,7 @@ export const IndividuationInfo: FC = () => (
   <View style={styles.container}>
     <View style={styles.textContainer}>
       <Text style={styles.text}>
-        When referring to individuations at Forzen, we're interested in the
+        When referring to individuations at F⍛rzen, we're interested in the
         process of unifying all aspects of the individual self in a
         non-dualistic process.
         {"\n\n"}
